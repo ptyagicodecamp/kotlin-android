@@ -1,21 +1,24 @@
 package org.pcc.startup;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.pcc.Utils;
+import org.pcc.kotlinandroid.FullDetailsFragment;
 import org.pcc.kotlinandroid.R;
 import org.pcc.startup.model.CardViewModel;
 
 import java.util.ArrayList;
 
-import static org.pcc.kotlin.DefiningFunctionsKt.executeDefiningFunctions1;
 import static org.pcc.kotlin.DefiningFunctionsKt.sum;
 
-public class MainActivityList extends AppCompatActivity implements ListFragment.OnListFragmentInteractionListener {
+public class MainActivityList extends AppCompatActivity implements
+        ListFragment.OnListFragmentInteractionListener,
+FullDetailsFragment.OnFragmentInteractionListener {
     // Remove the below line after defining your own ad unit ID.
     private static final String TOAST_TEXT = "Test ads are being shown. "
             + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
@@ -23,36 +26,20 @@ public class MainActivityList extends AppCompatActivity implements ListFragment.
     private ArrayList<CardViewModel> myDatasetLevel1 = new ArrayList<CardViewModel>();
     private ArrayList<CardViewModel> mDatasetForBasicSyntax = new ArrayList<CardViewModel>();
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-
     android.support.v4.app.FragmentManager mFragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
-//        mRecyclerView = (RecyclerView) findViewById(R.id.kotProRecyclerView);
+
+        myDatasetLevel1 = Utils.getData(this).getData();
+
+//        mDatasetForBasicSyntax.add(new CardViewModel(1, "Defining packages", "Importing Packages in Kotlin"));;
+//        mDatasetForBasicSyntax.add(new CardViewModel(2, "Defining Functions", "Functions in Kotlin"));
 //
-//        // use this setting to improve performance if you know that changes
-//        // in content do not change the layout size of the RecyclerView
-//        mRecyclerView.setHasFixedSize(true);
-//
-//        // use a linear layout manager
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        mDatasetForBasicSyntax.add(new CardViewModel(1, "Defining packages", "Importing Packages in Kotlin"));;
-        mDatasetForBasicSyntax.add(new CardViewModel(2, "Defining Functions", "Functions in Kotlin"));
-
-        myDatasetLevel1 = new ArrayList<CardViewModel>();
-        myDatasetLevel1.add(new CardViewModel(1, "Basic Syntax", "Basic Syntax for Kotlin", mDatasetForBasicSyntax));
-        //myDatasetLevel1.add(new CardViewModel(2, "Basic Types", ""));
-
-        // specify an adapter (see also next example)
-//        mAdapter = new MyAdapter(myDatasetLevel1);
-//        mRecyclerView.setAdapter(mAdapter);
+//        myDatasetLevel1 = new ArrayList<CardViewModel>();
+//        myDatasetLevel1.add(new CardViewModel(1, "Basic Syntax", "Basic Syntax for Kotlin", mDatasetForBasicSyntax));
 
         if (null == savedInstanceState) {
             mFragmentManager = getSupportFragmentManager();
@@ -83,23 +70,28 @@ public class MainActivityList extends AppCompatActivity implements ListFragment.
     }
 
     @Override
-    public void onListFragmentInteraction(CardViewModel item) {
-        Log.d("Test", "Selected item: " + item.getTitle());
+    public void onListFragmentInteraction(CardViewModel cardItem) {
+        Log.d("Test", "Selected item: " + cardItem.getTitle());
 
-        if (item.getChildren().size() < 1) {
+        if (cardItem.getChildren().size() < 1) {
             //TODO: Check if href is available.
-            if (item.getCodeTag().equals("executeDefiningFunctions1")) {
-                executeDefiningFunctions1();
-            }
+//            if (cardItem.getCodeTag().equals("executeDefiningFunctions1")) {
+//                executeDefiningFunctions1();
+//            }
 
-            return;
+            mFragmentManager.beginTransaction().replace(R.id.replaceme, FullDetailsFragment.newInstance(cardItem)).commitAllowingStateLoss();
+        } else {
+            mFragmentManager.beginTransaction().replace(R.id.replaceme, new ListFragment(cardItem.getChildren())).commitAllowingStateLoss();
         }
-
-        mFragmentManager.beginTransaction().replace(R.id.replaceme, new ListFragment(item.getChildren())).commitAllowingStateLoss();
     }
 
     public void executeDefiningFunctions() {
         int result = sum(3, 5);
         Log.d("Test", String.valueOf(result));
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

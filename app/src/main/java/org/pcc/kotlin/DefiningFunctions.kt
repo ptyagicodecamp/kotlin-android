@@ -1,7 +1,5 @@
 package org.pcc.kotlin
 
-import android.util.Log
-
 /**
  * Created by ptyagi on 7/4/17.
  */
@@ -14,12 +12,12 @@ fun sum(a: Int, b: Int): Int {
     return a + b
 }
 
-fun executeDefiningFunctions1() {
-    val result = sum(3, 5)
-    Log.d("Test", result.toString())
+fun executeDefiningFunctions1(): Int {
+    val result = sum(1, 2)
+    return result
 }
 
 fun main(args: Array<String>) {
-    print("sum of 3 and 5 is ")
-    println(sum(3, 5))
+    print("sum of 1 and 2 is ")
+    println(sum(1, 2))
 }

@@ -1,0 +1,46 @@
+{
+  "data":
+  [
+    {
+      "rowId": "1",
+      "title": "Basic Syntax",
+      "description": "Basic understanding of Kotlin's syntax",
+      "href": "http://kotlinlang.org/docs/reference/basic-syntax.html",
+      "children": [
+        {
+          "rowId": "1",
+          "title": "Defining packages",
+          "description": "Package is declared at the top of the file same as in Java classes.",
+          "href": "http://kotlinlang.org/docs/reference/basic-syntax.html#defining-packages",
+          "children": [
+            {
+              "rowId": "1",
+              "title": "Defining packages",
+              "description": "Package is declared at the top of the file same as in Java classes.",
+              "href": "http://kotlinlang.org/docs/reference/basic-syntax.html#defining-packages",
+              "codeHref": "https://github.com/ptyagi911/MyRecyclerView/blob/master/app/src/main/java/com/teac/myRecyclerView/MainActivity.java#L16:L20",
+              //When codeTag is available, then show Run button and display output
+              "codeTag":"executeDefiningFunctions1",
+              "children": []
+            }
+          ]
+        },
+        {
+          "rowId": 2,
+          "title": "",
+          "description": "",
+          "href": "",
+          "children": []
+        }
+      ]
+    },
+
+    {
+      "rowId": "2",
+      "title": "Control Flow",
+      "description": "Control flow related concepts",
+      "href": ""
+
+    }
+  ]
+}

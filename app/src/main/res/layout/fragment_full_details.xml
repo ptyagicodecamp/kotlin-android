@@ -1,0 +1,68 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.pcc.kotlinandroid.FullDetailsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="WebViewLayout"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/leafTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/leafDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/leafTitle"
+        android:layout_margin="@dimen/activity_vertical_margin"/>
+
+    <Button
+        android:id="@+id/runCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Run Code"
+        android:textAlignment="center"
+        android:layout_above="@id/leafDesc"
+        android:layout_margin="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/codeOutput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/runCode"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:textStyle="bold" />
+
+        <WebView
+            android:id="@+id/codeWebview"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center_vertical"
+            android:layout_above="@id/codeOutput"
+            android:layout_margin="@dimen/activity_vertical_margin">
+
+        </WebView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/href"
+            android:layout_above="@id/codeWebview"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:layout_gravity="bottom"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+</FrameLayout>

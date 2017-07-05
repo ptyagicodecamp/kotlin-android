@@ -7,19 +7,12 @@ import java.util.ArrayList;
  */
 
 public class CardViewModel {
-    int mId;
+    int rowId;
     String title;
     String description;
+    String codeHref;
+    String codeTag;
     String href;
-    String codeTag = "executeDefiningFunctions1";
-
-    public String getCodeTag() {
-        return codeTag;
-    }
-
-    public void setCodeTag(String codeTag) {
-        this.codeTag = codeTag;
-    }
 
     public String getHref() {
         return href;
@@ -29,28 +22,46 @@ public class CardViewModel {
         this.href = href;
     }
 
-
-    ArrayList<CardViewModel> mChildren = new ArrayList<CardViewModel>();
-
-    public CardViewModel(int mId, String title, String description, ArrayList<CardViewModel> mChildren) {
-        this.mId = mId;
-        this.title = title;
-        this.description = description;
-        this.mChildren = mChildren;
+    public String getCodeTag() {
+        return codeTag;
     }
 
-    public CardViewModel(int mId, String title, String description) {
-        this.mId = mId;
+    public void setCodeTag(String codeTag) {
+        this.codeTag = codeTag;
+    }
+
+    public String getCodeHref() {
+        return codeHref;
+    }
+
+    public void setCodeHref(String codeHref) {
+        this.codeHref = codeHref;
+    }
+
+
+    ArrayList<CardViewModel> children = new ArrayList<CardViewModel>();
+
+    public CardViewModel() {}
+
+    public CardViewModel(int rowId, String title, String description, ArrayList<CardViewModel> children) {
+        this.rowId = rowId;
+        this.title = title;
+        this.description = description;
+        this.children = children;
+    }
+
+    public CardViewModel(int rowId, String title, String description) {
+        this.rowId = rowId;
         this.title = title;
         this.description = description;
     }
 
     public int getId() {
-        return mId;
+        return rowId;
     }
 
     public void setId(int id) {
-        this.mId = id;
+        this.rowId = id;
     }
 
     public String getTitle() {
@@ -70,6 +81,6 @@ public class CardViewModel {
     }
 
     public ArrayList<CardViewModel> getChildren() {
-        return mChildren;
+        return children;
     }
 }
