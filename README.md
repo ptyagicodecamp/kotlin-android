@@ -2,7 +2,7 @@
 
 ## Sample code for Kotlin
 
-#Activity
+# Activity
 ```
 class KotlinActivity : AppCompatActivity() {
 
