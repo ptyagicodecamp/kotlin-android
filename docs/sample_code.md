@@ -21,3 +21,14 @@ class KotlinActivity : AppCompatActivity() {
     }
 }
 ```
+
+## Activity3
+```
+class KotlinActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_kotlin)
+    }
+}
+```
