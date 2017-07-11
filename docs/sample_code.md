@@ -1,6 +1,10 @@
-## Sample code for Kotlin
+type: doc
+layout: reference
+category: "Syntax"
+title: "Example Android Kotlin Programs"
+---
 
-# Activity
+## Activity
 ```
 class KotlinActivity : AppCompatActivity() {
 
