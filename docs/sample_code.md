@@ -10,7 +10,7 @@ class KotlinActivity : AppCompatActivity() {
     }
 }
 ```
-[Checkout source code in Github](https://github.com/ptyagicodecamp/kotlin-android/blob/develop/app/src/main/java/org/pcc/kotlinandroid/samples/KotlinActivity.kt#L7-L13)
+[Checkout source code in action](https://github.com/ptyagicodecamp/kotlin-android/blob/develop/app/src/main/java/org/pcc/kotlinandroid/samples/KotlinActivity.kt#L7-L13)
 
 
 # Starting another Activity from an Activity in Kotlin
@@ -19,6 +19,8 @@ class KotlinActivity : AppCompatActivity() {
 var anotherActivity = Intent(this@MainActivity, KotlinActivity::class.java)
 startActivity(anotherActivity)
 ```
+[Checkout source code in action](https://github.com/ptyagicodecamp/kotlin-android/blob/develop/app/src/main/java/org/pcc/kotlinandroid/MainActivity.kt#L64-L66)
+
 
 # Activity3
 ```
