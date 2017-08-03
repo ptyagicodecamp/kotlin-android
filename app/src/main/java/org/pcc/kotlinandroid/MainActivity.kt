@@ -61,9 +61,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_kotlinActivity -> {
-                // Handle the camera action
-                var activity = Intent(this@MainActivity, KotlinActivity::class.java)
-                startActivity(activity)
+                //starting KotlinActivity from MainActivity
+                var anotherActivity = Intent(this@MainActivity, KotlinActivity::class.java)
+                startActivity(anotherActivity)
             }
             R.id.nav_gallery -> {
 
