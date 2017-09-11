@@ -1,0 +1,2 @@
+Q #1. What's the difference between `val` and `var` keywords ?
+A #1. `val` and `var` both are used to represent propterties of Kotlin classes. `var` is used for mutatble properties whose value can be changed, and `val` is used for immutable properties.
